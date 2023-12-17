@@ -1,4 +1,4 @@
-package com.desafio.pagamentosimplificado;
+package com.pagamentosimplificado;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
