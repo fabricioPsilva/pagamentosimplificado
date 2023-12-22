@@ -4,14 +4,9 @@
 
 Repositório desenvolvido para fins de **desafio**, com a finalidade de implementar uma **API Restful** com conceitos de um código limpo e organizado (design patterns, SOLID)
 
-## Tecnologias
+## Tecnologias Utilizadas
 <table>
-  <thead>
-    <tr align="left">
-      <th>Etapas</th>
-      <th>Ver documentação</th>
-    </tr>
-  </thead>
+  
   <tbody align="left">
     <tr>
       <td>Jpa Data</td>
