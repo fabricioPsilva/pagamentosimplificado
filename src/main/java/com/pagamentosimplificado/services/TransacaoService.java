@@ -28,10 +28,13 @@ public class TransacaoService {
 	@Autowired
 	private RestTemplate restTemplate;
 	
+	@Autowired
+	private NotificacaoService notificacaoService;
+	
 	@Value("${validador}")
 	private String validadorPagamento;
 	
-	public void criaTransacao(TransacaoDTO transacao) throws Exception {
+	public Transacao criaTransacao(TransacaoDTO transacao) throws Exception {
 		
 		Usuario pagador = this.usuarioService.findUsuarioById(transacao.pagadorId());
 		Usuario recebedor = this.usuarioService.findUsuarioById(transacao.recebedorId());
@@ -56,6 +59,11 @@ public class TransacaoService {
 		this.repository.save(novaTransacao);
 		this.usuarioService.saveUsuario(pagador);
 		this.usuarioService.saveUsuario(recebedor);
+		
+		this.notificacaoService.enviarNotificacao(pagador, "Transação realizada com sucesso!");
+		this.notificacaoService.enviarNotificacao(recebedor, "Transação recebida com sucesso!");
+		
+		return novaTransacao;
 		
 	}
 	

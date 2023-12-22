@@ -37,5 +37,5 @@ public class UsuarioController {
 		 
 		 return new ResponseEntity<>(usuarios, HttpStatus.OK);
 	}
-
+	
 }
