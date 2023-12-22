@@ -2,6 +2,8 @@ package com.pagamentosimplificado.domain.usuario;
 
 import java.math.BigDecimal;
 
+import com.pagamentosimplificado.dtos.UsuarioDto;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -13,6 +15,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity(name = "usuarios")
@@ -20,6 +23,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Usuario {
 	
@@ -36,5 +40,15 @@ public class Usuario {
 	private BigDecimal saldo;
 	@Enumerated(EnumType.STRING)
 	private TipoUsuario tipoUsuario;
+	
+	public Usuario(UsuarioDto usuario) {
+		this.nome = usuario.nome();
+		this.sobreNome = usuario.sobreNome();
+		this.documento = usuario.documento();
+		this.saldo = usuario.saldo();
+		this.tipoUsuario = usuario.tipoUsuario();
+		this.senha = usuario.senha();
+		this.email = usuario.email();
+	}
 
 }

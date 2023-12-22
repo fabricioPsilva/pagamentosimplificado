@@ -1,12 +1,14 @@
 package com.pagamentosimplificado.services;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pagamentosimplificado.domain.usuario.TipoUsuario;
 import com.pagamentosimplificado.domain.usuario.Usuario;
+import com.pagamentosimplificado.dtos.UsuarioDto;
 import com.pagamentosimplificado.repositories.UsuarioRepository;
 
 @Service
@@ -31,6 +33,16 @@ public class UsuarioService {
 	
 	public void saveUsuario(Usuario usuario) {
 		this.repository.save(usuario);
+	}
+
+	public Usuario criaUsuario(UsuarioDto usuario) {
+		Usuario novoUsuario = new Usuario(usuario);
+		this.saveUsuario(novoUsuario);
+		return novoUsuario;
+	}
+
+	public List<Usuario> getAllUsuarios() {
+		return this.repository.findAll();
 	}
 	
 }
