@@ -24,6 +24,14 @@ Esse desafio contém os seguintes desafios:
 
 - Este serviço é RESTFul.
 
+## 🚀 Rodar o projeto
+
+No diretório target:
+
+```
+mvn clean package -DskipTests
+```
+
 ## Tecnologias Utilizadas
 <table>
   
